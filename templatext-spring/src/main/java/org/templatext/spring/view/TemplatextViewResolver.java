@@ -2,9 +2,9 @@ package org.templatext.spring.view;
 
 import org.springframework.web.servlet.view.AbstractTemplateViewResolver;
 
-public class JavangoViewResolver extends AbstractTemplateViewResolver {
+public class TemplatextViewResolver extends AbstractTemplateViewResolver {
 
-	public JavangoViewResolver() {
+	public TemplatextViewResolver() {
 		setViewClass(requiredViewClass());
 	}
 	

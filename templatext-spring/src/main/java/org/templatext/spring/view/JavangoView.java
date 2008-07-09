@@ -68,8 +68,8 @@ public class JavangoView extends AbstractTemplateView {
 	}
 
 	/**
-	 * Invoked on startup. Either uses a injected {@link JavangoConfig} or
-	 * searches the application context for a {@link JavangoConfig} bean and
+	 * Invoked on startup. Either uses a injected {@link TemplatextConfig} or
+	 * searches the application context for a {@link TemplatextConfig} bean and
 	 * uses it.
 	 */
 	@Override
@@ -82,13 +82,13 @@ public class JavangoView extends AbstractTemplateView {
 	}
 
 	/**
-	 * Locates a single {@link JavangoConfig} bean in the application context.
+	 * Locates a single {@link TemplatextConfig} bean in the application context.
 	 * 
 	 * @return
 	 */
-	protected JavangoConfig findContextConfiguration() {
+	protected TemplatextConfig findContextConfiguration() {
 		try {
-			return (JavangoConfig) BeanFactoryUtils.beanOfTypeIncludingAncestors(getApplicationContext(), JavangoConfig.class, true, false);
+			return (TemplatextConfig) BeanFactoryUtils.beanOfTypeIncludingAncestors(getApplicationContext(), TemplatextConfig.class, true, false);
 		} catch (NoSuchBeanDefinitionException ex) {
 			throw new ApplicationContextException(
 					"Must define a single JavangoConfig bean (may be inherited). JavangoConfigurer is the default implementation.");
@@ -97,7 +97,7 @@ public class JavangoView extends AbstractTemplateView {
 
 	/**
 	 * Set the Javango {@link Configuration} to be used by this view. If this is
-	 * not set the default lookup is performed: a single {@link JavangoConfig}
+	 * not set the default lookup is performed: a single {@link TemplatextConfig}
 	 * is expected in the web application context, with any name.
 	 * 
 	 * @param configuration
