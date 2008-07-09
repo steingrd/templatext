@@ -1,4 +1,4 @@
-package org.javango.spring.example.web;
+package org.templatext.spring.example.web;
 
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.webapp.WebAppContext;

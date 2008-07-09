@@ -1,4 +1,4 @@
-package org.javango.spring.example.web;
+package org.templatext.spring.example.web;
 
 import net.sourceforge.jwebunit.WebTestCase;
 
