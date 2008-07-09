@@ -11,7 +11,7 @@ public class TemplatextViewResolver extends AbstractTemplateViewResolver {
 	@SuppressWarnings("unchecked")
 	@Override
 	protected Class requiredViewClass() {
-		return JavangoView.class;
+		return TemplatextView.class;
 	}
 	
 }

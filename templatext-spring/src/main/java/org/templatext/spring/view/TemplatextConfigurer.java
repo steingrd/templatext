@@ -27,7 +27,7 @@ import org.templatext.template.loader.MultiTemplateLoader;
  * 
  * @author Steingrim Dovland <steingrd@ifi.uio.no>
  */
-public class JavangoConfigurer implements TemplatextConfig, InitializingBean, ServletContextAware, ResourceLoaderAware {
+public class TemplatextConfigurer implements TemplatextConfig, InitializingBean, ServletContextAware, ResourceLoaderAware {
 
 	private Configuration configuration;
 

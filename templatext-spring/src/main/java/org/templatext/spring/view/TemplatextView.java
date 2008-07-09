@@ -14,7 +14,7 @@ import org.templatext.template.Configuration;
 import org.templatext.template.Context;
 import org.templatext.template.Template;
 
-public class JavangoView extends AbstractTemplateView {
+public class TemplatextView extends AbstractTemplateView {
 
 	private Configuration configuration;
 
