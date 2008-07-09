@@ -23,5 +23,8 @@
       </plugin>
     </plugins>
   </build>
+  <scm>
+    <connection>scm:svn:https://templatext.googlecode.com/svn/trunk</connection>
+  </scm>
 </project>
 
