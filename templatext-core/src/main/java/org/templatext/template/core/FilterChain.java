@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.templatext.template.TemplateFilter;
-import org.templatext.template.compiler.FilterInvocation;
 
 public class FilterChain {
 	

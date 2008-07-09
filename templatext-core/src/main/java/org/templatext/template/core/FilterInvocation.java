@@ -1,4 +1,4 @@
-package org.templatext.template.compiler;
+package org.templatext.template.core;
 
 import org.templatext.template.TemplateFilter;
 
