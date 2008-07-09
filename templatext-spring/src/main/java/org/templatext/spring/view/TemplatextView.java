@@ -25,7 +25,7 @@ public class TemplatextView extends AbstractTemplateView {
 	}
 
 	/**
-	 * Render the JavangoView view to the given response, using the given model.
+	 * Render the TemplatextView view to the given response, using the given model.
 	 * <p>
 	 * The default implementation renders the template specified by the "url"
 	 * bean property, retrieved via <code>loadTemplate</code>. It delegates to
@@ -42,7 +42,7 @@ public class TemplatextView extends AbstractTemplateView {
 	}
 
 	/**
-	 * Process the Javango {@link Template} instance to the servlet response.
+	 * Process the Templatext {@link Template} instance to the servlet response.
 	 * Can be overriden to add custom behavior.
 	 * 
 	 * @param loadTemplate
@@ -91,12 +91,12 @@ public class TemplatextView extends AbstractTemplateView {
 			return (TemplatextConfig) BeanFactoryUtils.beanOfTypeIncludingAncestors(getApplicationContext(), TemplatextConfig.class, true, false);
 		} catch (NoSuchBeanDefinitionException ex) {
 			throw new ApplicationContextException(
-					"Must define a single JavangoConfig bean (may be inherited). JavangoConfigurer is the default implementation.");
+					"Must define a single TemplatextConfig bean (may be inherited). TemplatextConfigurer is the default implementation.");
 		}
 	}
 
 	/**
-	 * Set the Javango {@link Configuration} to be used by this view. If this is
+	 * Set the Templatext {@link Configuration} to be used by this view. If this is
 	 * not set the default lookup is performed: a single {@link TemplatextConfig}
 	 * is expected in the web application context, with any name.
 	 * 

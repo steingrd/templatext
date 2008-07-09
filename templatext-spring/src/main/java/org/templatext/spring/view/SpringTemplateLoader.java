@@ -10,7 +10,7 @@ import org.templatext.template.TemplateException;
 import org.templatext.template.TemplateLoader;
 
 /**
- * Javango template loader that loads via a Spring {@link ResourceLoader}. Used
+ * Templatext template loader that loads via a Spring {@link ResourceLoader}. Used
  * for any paths that cannot be resolved as a {@link File}.
  * 
  * @author Steingrim Dovland <steingrd@ifi.uio.no>

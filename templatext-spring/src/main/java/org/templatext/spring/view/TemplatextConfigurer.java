@@ -21,9 +21,10 @@ import org.templatext.template.loader.MultiTemplateLoader;
 // FIXME add support for custom template loaders
 
 /**
- * Java bean to configure Javango templates for web mvc use. The simplest way to
- * use this class is to set the templateLoaderPath property. It is also possible
- * to set the configuration property to a {@link Configuration} java bean.
+ * Java bean to configure Templatext templates for web mvc use. The simplest way
+ * to use this class is to set the templateLoaderPath property. It is also
+ * possible to set the configuration property to a {@link Configuration} java
+ * bean.
  * 
  * @author Steingrim Dovland <steingrd@ifi.uio.no>
  */
@@ -53,11 +54,11 @@ public class TemplatextConfigurer implements TemplatextConfig, InitializingBean,
 	}
 
 	public void setServletContext(ServletContext servletContext) {
-		// for future use without breaking api 
+		// for future use without breaking api
 	}
 
 	/**
-	 * Sets the Spring {@link ResourceLoader} to use for loading Javango
+	 * Sets the Spring {@link ResourceLoader} to use for loading Templatext
 	 * template files. The default is {@link DefaultResourceLoader}. Is
 	 * overridden by the ApplicationContext if running in a context.
 	 */
@@ -100,14 +101,14 @@ public class TemplatextConfigurer implements TemplatextConfig, InitializingBean,
 	}
 
 	/**
-	 * Returns the Javango {@link Configuration} bean wrapped by this bean.
+	 * Returns the Templatext {@link Configuration} bean wrapped by this bean.
 	 */
 	public Configuration getConfiguration() {
 		return this.configuration;
 	}
 
 	/**
-	 * Set a preconfigured Javango {@link Configuration} bean. If this is not
+	 * Set a preconfigured Templatext {@link Configuration} bean. If this is not
 	 * set, either the properties of this class has to be set or the default
 	 * values are used.
 	 * 
@@ -134,7 +135,7 @@ public class TemplatextConfigurer implements TemplatextConfig, InitializingBean,
 		}
 
 		configuration.setTemplateLoader(createAggregateTemplateLoader());
-		
+
 		postProcessConfiguration(configuration);
 		return configuration;
 	}
@@ -152,7 +153,7 @@ public class TemplatextConfigurer implements TemplatextConfig, InitializingBean,
 	}
 
 	/**
-	 * Create a Javango {@link TemplateLoader} for the given path. Default
+	 * Create a Templatext {@link TemplateLoader} for the given path. Default
 	 * implementation returns a {@link FileSystemTemplateLoader}.
 	 * 
 	 * @param path
@@ -162,7 +163,7 @@ public class TemplatextConfigurer implements TemplatextConfig, InitializingBean,
 		if (!isFileSystemAccessPreferred()) {
 			return new SpringTemplateLoader(this.resourceLoader, templateLoaderPath);
 		}
-		
+
 		try {
 			Resource path = this.resourceLoader.getResource(templateLoaderPath);
 			File directory = path.getFile(); // fails if not resolvable
