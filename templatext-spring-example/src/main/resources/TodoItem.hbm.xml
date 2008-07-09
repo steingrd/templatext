@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="org.javango.spring.example.model.TodoItem" table="todo" lazy="false">
+  <class name="org.templatext.spring.example.model.TodoItem" table="todo" lazy="false">
     <id name="id" column="id" type="java.lang.Long" unsaved-value="-1">
       <generator class="native" />
     </id>

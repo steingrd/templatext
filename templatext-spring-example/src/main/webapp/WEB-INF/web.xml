@@ -1,7 +1,7 @@
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
-  <display-name>javango-spring-example</display-name>
-  <description>This is a Javango Templates example application using Spring MVC.</description>
+  <display-name>templatext-spring-example</display-name>
+  <description>This is a Templatext example application using Spring MVC.</description>
   <servlet>
     <servlet-name>example</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

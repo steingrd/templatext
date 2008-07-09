@@ -4,24 +4,24 @@
 
   <bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
 
-  <bean id="javangoConfig" class="org.javango.spring.view.JavangoConfigurer">
+  <bean id="templatextConfig" class="org.templatext.spring.view.TemplatextConfigurer">
     <property name="templateLoaderPath" value="/WEB-INF/templates/" />
   </bean>
 
-  <bean id="viewResolver" class="org.javango.spring.view.JavangoViewResolver">
+  <bean id="viewResolver" class="org.templatext.spring.view.TemplatextViewResolver">
     <property name="prefix" value="" />
     <property name="suffix" value=".html" />
   </bean>
 
-  <bean name="/list.html" class="org.javango.spring.example.controller.ListController">
+  <bean name="/list.html" class="org.templatext.spring.example.controller.ListController">
     <property name="todoItemDao" ref="todoItemDao" />
   </bean>
 
-  <bean name="/details.html" class="org.javango.spring.example.controller.DetailsController">
+  <bean name="/details.html" class="org.templatext.spring.example.controller.DetailsController">
     <property name="todoItemDao" ref="todoItemDao" />
   </bean>
 
-  <bean name="/delete.html" class="org.javango.spring.example.controller.DeleteController">
+  <bean name="/delete.html" class="org.templatext.spring.example.controller.DeleteController">
     <property name="todoItemDao" ref="todoItemDao" />
   </bean>
 

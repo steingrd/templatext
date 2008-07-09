@@ -27,7 +27,7 @@
     </property>
   </bean>
 
-  <bean id="todoItemDao" class="org.javango.spring.example.dao.TodoItemDaoHibernate">
+  <bean id="todoItemDao" class="org.templatext.spring.example.dao.TodoItemDaoHibernate">
     <property name="sessionFactory">
       <ref bean="sessionFactory" />
     </property>
