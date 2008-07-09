@@ -1,4 +1,4 @@
-package org.javango.spring.view;
+package org.templatext.spring.view;
 
 import org.springframework.web.servlet.view.AbstractTemplateViewResolver;
 

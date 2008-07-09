@@ -1,18 +1,18 @@
-package org.javango.spring.view;
+package org.templatext.spring.view;
 
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.javango.template.Configuration;
-import org.javango.template.Context;
-import org.javango.template.Template;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.web.servlet.view.AbstractTemplateView;
+import org.templatext.template.Configuration;
+import org.templatext.template.Context;
+import org.templatext.template.Template;
 
 public class JavangoView extends AbstractTemplateView {
 

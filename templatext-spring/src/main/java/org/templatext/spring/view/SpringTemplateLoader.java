@@ -1,13 +1,13 @@
-package org.javango.spring.view;
+package org.templatext.spring.view;
 
 import java.io.File;
 import java.io.IOException;
 
-import org.javango.template.Template;
-import org.javango.template.TemplateException;
-import org.javango.template.TemplateLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
+import org.templatext.template.Template;
+import org.templatext.template.TemplateException;
+import org.templatext.template.TemplateLoader;
 
 /**
  * Javango template loader that loads via a Spring {@link ResourceLoader}. Used

@@ -1,4 +1,4 @@
-package org.javango.spring.view;
+package org.templatext.spring.view;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,16 +7,16 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
-import org.javango.template.Configuration;
-import org.javango.template.TemplateLoader;
-import org.javango.template.loader.FileSystemTemplateLoader;
-import org.javango.template.loader.MultiTemplateLoader;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.web.context.ServletContextAware;
+import org.templatext.template.Configuration;
+import org.templatext.template.TemplateLoader;
+import org.templatext.template.loader.FileSystemTemplateLoader;
+import org.templatext.template.loader.MultiTemplateLoader;
 
 // FIXME add support for custom template loaders
 
