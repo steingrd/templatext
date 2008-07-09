@@ -1,0 +1,43 @@
+{% inherit base.html %}
+{% override content %}
+  <h1>Details</h1>
+  <p>
+    <a href="list.html">Back</a>
+  </p>
+  <table class="vertical" cellspacing="0">
+  <form method="post" action="details.html" name="save">
+	<input type="hidden" name="id" value="{{ item.id }}">  	
+    <tr class="odd">
+      <th>Id</th>
+      <td style="width: 100%;">{{ item.id }}</td>
+    </tr>
+    <tr class="even">
+      <th>Finished</th>
+      {% if item.finished %}
+      <td><input type="checkbox" name="finished" checked="checked"></td>
+      {% else %}
+      <td><input type="checkbox" name="finished"></td>
+      {% endif %}
+    </tr>
+    <tr class="odd">
+      <th>Priority</th>
+      <td><input type="text" name="priority" value="{{ item.priority }}" size="1"></td>
+    </tr>
+    <tr class="even">
+      <th>Title</th>
+      <td><input type="text" name="title" value="{{ item.title }}" size="50"></td>
+    </tr>
+    <tr class="odd">
+      <th>Description</th>
+      <td><textarea name="description" cols="44" rows="20">{{ item.description }}</textarea></td>
+    </tr>
+    <tr class="even">
+      <th>Action</th>
+      <td>
+        <input type="submit" value="Save">
+        <input type="button" value="Delete" onclick="document.location='delete.html?id={{ item.id }}'">
+      </td>
+    </tr>
+  </form>
+  </table>
+{% endoverride %}

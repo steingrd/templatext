@@ -1,0 +1,19 @@
+
+tr.even {
+  background-color: #ccc;
+}
+
+tr.odd {
+  background-color: #eee;
+}
+
+table.vertical th {
+  padding: 0 1em 0 1em;
+  text-align: right;
+  vertical-align: top;
+}
+
+table.horizontal th {
+  text-align: left;
+  vertical-align: top;
+}

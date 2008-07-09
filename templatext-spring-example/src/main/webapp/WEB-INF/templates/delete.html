@@ -1,0 +1,10 @@
+{% inherit base.html %}
+{% override content %}
+  <h1>Really delete?</h1>
+  <form method="post" action="delete.html" name="save">
+	<input type="hidden" name="id" value="{{ command.id }}">  	
+    <input type="submit" value="Yes, delete">
+    <input type="button" value="No, go back" onclick="document.location='details.html?id={{ command.id }}'"> 
+  </form>
+  </table>
+{% endoverride %}

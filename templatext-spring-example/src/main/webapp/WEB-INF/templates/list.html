@@ -1,0 +1,25 @@
+{% inherit base.html %}
+{% override content %}
+  <h1>Todo</h1>
+  <p>
+    <a href="details.html">New item</a>
+  </p>
+  <table class="horizontal" width="100%">
+    <thead>
+  	  <tr>
+  	    <th>Priority</th>
+  	    <th>Title</th>
+  	    <th>Finished?</th>
+  	  </tr>
+  	</thead>
+  	<tbody>
+      {% for item in todolist %}
+      <tr class="{% cycle odd even %}">  
+        <td>{{ item.priority }}</td>
+        <td><a href="details.html?id={{ item.id }}">{{ item.title }}</a></td>
+        <td>{{ item.finished }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endoverride %}

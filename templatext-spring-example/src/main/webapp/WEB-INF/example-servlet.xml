@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+  <bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+
+  <bean id="javangoConfig" class="org.javango.spring.view.JavangoConfigurer">
+    <property name="templateLoaderPath" value="/WEB-INF/templates/" />
+  </bean>
+
+  <bean id="viewResolver" class="org.javango.spring.view.JavangoViewResolver">
+    <property name="prefix" value="" />
+    <property name="suffix" value=".html" />
+  </bean>
+
+  <bean name="/list.html" class="org.javango.spring.example.controller.ListController">
+    <property name="todoItemDao" ref="todoItemDao" />
+  </bean>
+
+  <bean name="/details.html" class="org.javango.spring.example.controller.DetailsController">
+    <property name="todoItemDao" ref="todoItemDao" />
+  </bean>
+
+  <bean name="/delete.html" class="org.javango.spring.example.controller.DeleteController">
+    <property name="todoItemDao" ref="todoItemDao" />
+  </bean>
+
+</beans>
