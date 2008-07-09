@@ -1,8 +1,8 @@
-package org.javango.spring.example.dao;
+package org.templatext.spring.example.dao;
 
 import java.util.Collection;
 
-import org.javango.spring.example.model.TodoItem;
+import org.templatext.spring.example.model.TodoItem;
 
 public interface TodoItemDao {
 

@@ -1,13 +1,13 @@
-package org.javango.spring.example.controller;
+package org.templatext.spring.example.controller;
 
 import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.javango.spring.example.dao.TodoItemDao;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
+import org.templatext.spring.example.dao.TodoItemDao;
 
 public class ListController extends AbstractController {
 

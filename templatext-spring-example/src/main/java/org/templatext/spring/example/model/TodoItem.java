@@ -1,4 +1,4 @@
-package org.javango.spring.example.model;
+package org.templatext.spring.example.model;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 

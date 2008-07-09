@@ -1,36 +1,30 @@
-package org.javango.spring.example.controller;
+package org.templatext.spring.example.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.javango.spring.example.dao.TodoItemDao;
-import org.javango.spring.example.model.TodoItem;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
+import org.templatext.spring.example.dao.TodoItemDao;
+import org.templatext.spring.example.model.TodoItem;
 
-public class DetailsController extends SimpleFormController {
+public class DeleteController extends SimpleFormController {
 
 	private TodoItemDao todoItemDao;
-	
-	public DetailsController() {
-		setCommandClass(TodoItem.class);
-		setCommandName("item");
-	}
-	
+
 	@Override
 	protected Object formBackingObject(HttpServletRequest request) throws Exception {
 		String id = request.getParameter("id");
-		if (id != null && !"".equals(id)) {
+		if (id != null) {
 			return todoItemDao.getTodoItemById(Long.parseLong(id));
 		}
-		return new TodoItem();
+		return null;
 	}
 	
 	@Override
 	protected ModelAndView onSubmit(Object command) throws Exception {
-		TodoItem item = (TodoItem)command;
-		todoItemDao.saveOrUpdate(item);
-		return new ModelAndView(new RedirectView("details.html?id=" + item.getId()));
+		todoItemDao.delete((TodoItem)command);
+		return new ModelAndView(new RedirectView("list.html"));
 	}
 	
 	public TodoItemDao getTodoItemDao() {

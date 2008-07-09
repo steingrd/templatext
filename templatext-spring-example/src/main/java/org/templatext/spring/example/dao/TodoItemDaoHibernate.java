@@ -1,10 +1,10 @@
-package org.javango.spring.example.dao;
+package org.templatext.spring.example.dao;
 
 import java.util.Collection;
 
 import org.apache.log4j.Logger;
-import org.javango.spring.example.model.TodoItem;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.templatext.spring.example.model.TodoItem;
 
 public class TodoItemDaoHibernate extends HibernateDaoSupport implements TodoItemDao {
 	
