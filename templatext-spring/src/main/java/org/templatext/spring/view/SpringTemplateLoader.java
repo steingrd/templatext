@@ -8,6 +8,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.templatext.template.Template;
 import org.templatext.template.TemplateException;
 import org.templatext.template.TemplateLoader;
+import org.templatext.template.compiler.TemplateCompiler;
 
 /**
  * Templatext template loader that loads via a Spring {@link ResourceLoader}. Used
@@ -18,8 +19,9 @@ import org.templatext.template.TemplateLoader;
 public class SpringTemplateLoader implements TemplateLoader {
 
 	private final ResourceLoader resourceLoader;
-	
 	private final String templateLoaderPath;
+	
+	private final TemplateCompiler compiler = new TemplateCompiler();
 	
 	public SpringTemplateLoader(ResourceLoader resourceLoader, String templateLoaderPath) {
 		this.resourceLoader = resourceLoader;
@@ -31,7 +33,7 @@ public class SpringTemplateLoader implements TemplateLoader {
 	
 	public Template load(String name) throws TemplateException, IOException {
 		Resource resource = this.resourceLoader.getResource(this.templateLoaderPath + name);
-		return resource.exists() ? new Template(resource.getInputStream()) : null;
+		return resource.exists() ? compiler.compile(resource.getInputStream()) : null;
 	}
 
 }

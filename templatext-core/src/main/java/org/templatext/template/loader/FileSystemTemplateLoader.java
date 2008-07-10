@@ -4,16 +4,17 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 
 import org.templatext.template.Template;
 import org.templatext.template.TemplateException;
 import org.templatext.template.TemplateLoader;
 import org.templatext.template.TemplateNotFoundException;
+import org.templatext.template.compiler.TemplateCompiler;
 
 public class FileSystemTemplateLoader implements TemplateLoader {
 
 	private String basePath;
+	private TemplateCompiler compiler = new TemplateCompiler();
 	
 	public FileSystemTemplateLoader() {
 	}
@@ -35,21 +36,7 @@ public class FileSystemTemplateLoader implements TemplateLoader {
 			throw new TemplateNotFoundException(e.getMessage()); 
 		}
 		
-		StringBuffer templateString = new StringBuffer();
-		try {
-			String line = reader.readLine();
-			while (line != null && !"".equals(line)) {
-				templateString.append(line);
-				// readLine strips away the newline, we want to keep it to
-				// preserve the format the template author used
-				templateString.append("\n");
-				line = reader.readLine();
-			}
-		} catch (IOException e) {
-			throw new TemplateException(e.getMessage());
-		}
-		
-		return new Template(templateString.toString());
+		return compiler.compile(reader);
 	}
 
 	public String getBasePath() {

@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 
 import org.templatext.template.Context;
 import org.templatext.template.Template;
+import org.templatext.template.compiler.TemplateCompiler;
 
 /**
  * Base class for template tests. Defines methods for rendering and templates
@@ -14,12 +15,12 @@ import org.templatext.template.Template;
 public abstract class AbstractTemplateTest extends TestCase {
 
 	protected static void renderAndAssert(String name, String template, Context context, String expected) {
-		Template t = new Template(template);
+		Template t = new TemplateCompiler().compile(template);
 		assertEquals(expected, t.render(context));
 	}
 
 	protected static void renderAndAssert(String name, String template, Context context, Exception exception) {
-		Template t = new Template(template);
+		Template t = new TemplateCompiler().compile(template);
 		try {
 			t.render(context);
 			fail("expected exception: " + exception.getClass().getName());
