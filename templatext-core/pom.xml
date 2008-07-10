@@ -6,7 +6,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <artifactId>templatext-core</artifactId>
-  <name>Templatext Engine</name>
+  <name>Templatext Core Engine</name>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
