@@ -1,11 +1,14 @@
 package org.templatext.template.tag;
 
+import java.io.IOException;
+
 import org.templatext.template.Configuration;
 import org.templatext.template.Context;
 import org.templatext.template.Template;
 import org.templatext.template.TemplateException;
 import org.templatext.template.TemplateLoader;
 import org.templatext.template.TemplateNode;
+import org.templatext.template.TemplateNotFoundException;
 
 /**
  * The `insert` tag is used to insert a named template using the current
@@ -36,9 +39,12 @@ public class InsertNode implements TemplateNode {
 		Template template;
 		try {
 			template = loader.load(templateName);
-		} catch (Exception e) {
-			throw new TemplateException("failed to load template: " + e.getMessage());
+		} catch (TemplateNotFoundException e) {
+			throw new TemplateException("failed to load template: " + templateName, e);
+		} catch (IOException e) {
+			throw new TemplateException("failed to load template: " + templateName, e);
 		}
+		
 		return template.render(context);
 	}
 

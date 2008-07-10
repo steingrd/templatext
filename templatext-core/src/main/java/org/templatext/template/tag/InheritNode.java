@@ -7,6 +7,7 @@ import org.templatext.template.Template;
 import org.templatext.template.TemplateException;
 import org.templatext.template.TemplateLoader;
 import org.templatext.template.TemplateNode;
+import org.templatext.template.TemplateNotFoundException;
 
 /**
  * The `inherit` tag is used to declare that a template inherits the contents of
@@ -33,10 +34,10 @@ public class InheritNode implements TemplateNode {
 		
 		try {
 			parent = loader.load(parentTemplateName);
-		} catch (TemplateException e) {
-			return ""; // FIXME
+		} catch (TemplateNotFoundException e) {
+			throw new TemplateException("could not load parent template: " + parentTemplateName, e);
 		} catch (IOException e) {
-			return ""; 
+			throw new TemplateException("could not load parent template: " + parentTemplateName, e);
 		}
 		
 		createOverrides(context);

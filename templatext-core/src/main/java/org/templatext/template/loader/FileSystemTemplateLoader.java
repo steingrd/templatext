@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 import org.templatext.template.Template;
-import org.templatext.template.TemplateException;
 import org.templatext.template.TemplateLoader;
 import org.templatext.template.TemplateNotFoundException;
 import org.templatext.template.compiler.TemplateCompiler;
@@ -26,7 +25,7 @@ public class FileSystemTemplateLoader implements TemplateLoader {
 		}
 	}
 
-	public Template load(String name) throws TemplateException {
+	public Template load(String name) throws TemplateNotFoundException {
 		name = this.basePath + name;
 		
 		BufferedReader reader;

@@ -4,6 +4,6 @@ import java.io.IOException;
 
 public interface TemplateLoader {
 
-	Template load(String name) throws TemplateException, IOException;
+	Template load(String name) throws TemplateNotFoundException, IOException;
 	
 }

@@ -21,7 +21,7 @@ public class InsertNodeTest extends TestCase {
 	protected void setUp() throws Exception {
 		context = new Context();
 		mockLoader = new TemplateLoader() {
-			public Template load(String name) {
+			public Template load(String name) throws TemplateNotFoundException {
 				if (!name.equals("inner")) {
 					throw new TemplateNotFoundException("not inner");
 				}
