@@ -10,13 +10,15 @@ import org.templatext.template.TemplateNode;
 import org.templatext.template.TemplateNotFoundException;
 
 /**
- * The `inherit` tag is used to declare that a template inherits the contents of
- * another template. The child template can use the `override` tag to override
- * named blocks from its parent.
+ * The <code>inherit</code> tag is used to declare that a template inherits the
+ * contents of another template. The child template can use the `override` tag
+ * to override named blocks from its parent.
+ * <p>
+ * Syntax:
  * 
- * Syntax: 
- * 
- *   {% inherit filename.html %}
+ * <pre>
+ * % inherit filename.html %}
+ * </pre>
  * 
  * @author Steingrim Dovland <steingrd@ifi.uio.no>
  */
@@ -31,7 +33,7 @@ public class InheritNode implements TemplateNode {
 	public String render(Context context) {
 		TemplateLoader loader = context.configuration().getTemplateLoader();
 		Template parent;
-		
+
 		try {
 			parent = loader.load(parentTemplateName);
 		} catch (TemplateNotFoundException e) {
@@ -39,9 +41,9 @@ public class InheritNode implements TemplateNode {
 		} catch (IOException e) {
 			throw new TemplateException("could not load parent template: " + parentTemplateName, e);
 		}
-		
+
 		createOverrides(context);
-		
+
 		return parent.render(context);
 	}
 
@@ -49,7 +51,7 @@ public class InheritNode implements TemplateNode {
 		Template child = context.template();
 		for (TemplateNode node : child.nodes()) {
 			if (node.getClass().equals(OverrideNode.class)) {
-				OverrideNode override = (OverrideNode)node;
+				OverrideNode override = (OverrideNode) node;
 				context.put("__override_" + override.name(), override);
 			}
 		}

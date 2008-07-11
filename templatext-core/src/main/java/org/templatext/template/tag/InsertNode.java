@@ -11,13 +11,18 @@ import org.templatext.template.TemplateNode;
 import org.templatext.template.TemplateNotFoundException;
 
 /**
- * The `insert` tag is used to insert a named template using the current
- * context. The tag takes a single argument, a template name, and renders the
- * template using the current context.
- * 
+ * The <code>insert</code> tag is used to insert a named template using the
+ * current context. The tag takes a single argument, a template name, and
+ * renders the template using the current context.
+ * <p>
+ * The TemplateLoader found in the current Configuration through the Context is
+ * used to load the named template.
+ * <p>
  * Syntax:
  * 
+ * <pre>
  *   {% insert filename.html %}
+ * </pre>
  * 
  * @author Steingrim Dovland <steingrd@ifi.uio.no>
  */
@@ -44,7 +49,7 @@ public class InsertNode implements TemplateNode {
 		} catch (IOException e) {
 			throw new TemplateException("failed to load template: " + templateName, e);
 		}
-		
+
 		return template.render(context);
 	}
 

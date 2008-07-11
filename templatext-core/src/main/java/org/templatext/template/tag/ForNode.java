@@ -15,24 +15,23 @@ import org.templatext.template.core.NodeList;
  * For loops takes a for loop variable name and a sequence and iterates over the
  * sequence, yielding a new value in the given variable name in the context for
  * each iteration.
- * 
- * Syntax: 
- * 
- *   {% for value in sequence %} ... {% endfor %}
- * 
- * The variable name "sequence" must resolve to a object in the given context
- * that implements the Iterable interface.
- * 
- * TODO nested for loops
- * 
+ * <p>
+ * Syntax:
+ * <pre>
+ * {% for value in sequence %} ... {% endfor %}</pre>
+ * The variable name <code>sequence</code> must resolve to a object in the given
+ * context that implements the Iterable interface.
+ * <p>
  * @author Steingrim Dovland <steingrd@ifi.uio.no>
  */
 public class ForNode implements TemplateNode {
 
 	private Variable iterable;
+
 	private String loopVariableName;
+
 	private NodeList body;
-	
+
 	public ForNode(String loopVariableName, String iterableVariableName, NodeList body) {
 		this.iterable = new Variable(iterableVariableName);
 		this.loopVariableName = loopVariableName;
@@ -43,44 +42,44 @@ public class ForNode implements TemplateNode {
 	public String render(Context context) {
 		Object sequence = iterable.resolve(context);
 		Iterator iterator = getIteratorFromObject(sequence);
-		
+
 		if (iterator == null) {
 			throw new TemplateException("for loop sequence variable is not iterable, type is " + sequence.getClass().getName());
 		}
-		
+
 		return renderInternal(context, iterator);
 	}
 
 	@SuppressWarnings("unchecked")
 	private String renderInternal(Context context, Iterator iterator) {
 		StringBuilder result = new StringBuilder();
-		
-		Map<String,Object> forloop = createForloopVariable();
+
+		Map<String, Object> forloop = createForloopVariable();
 		context.put("forloop", forloop);
 		boolean first = true;
 		boolean last = false;
-		
+
 		while (iterator.hasNext()) {
 			context.put(loopVariableName, iterator.next());
-			
+
 			last = !iterator.hasNext();
 			forloop.put("last", last);
-			
+
 			result.append(body.render(context));
 			updateForloopVariable(forloop);
-			
+
 			if (first) {
 				forloop.put("first", false);
 			}
 		}
-		
+
 		context.remove("forloop");
 		return result.toString();
 	}
 
 	private void updateForloopVariable(Map<String, Object> forloop) {
-		forloop.put("counter", ((Integer)forloop.get("counter")).intValue() + 1);
-		forloop.put("counter0", ((Integer)forloop.get("counter0")).intValue() + 1);
+		forloop.put("counter", ((Integer) forloop.get("counter")).intValue() + 1);
+		forloop.put("counter0", ((Integer) forloop.get("counter0")).intValue() + 1);
 	}
 
 	private Map<String, Object> createForloopVariable() {
@@ -99,15 +98,15 @@ public class ForNode implements TemplateNode {
 			iterator = new ArrayIterator(sequence);
 		} else {
 			if (sequence instanceof Iterable) {
-				iterator = ((Iterable)sequence).iterator();
+				iterator = ((Iterable) sequence).iterator();
 			} else if (sequence instanceof Iterator) {
-				iterator = (Iterator)sequence;
+				iterator = (Iterator) sequence;
 			}
 		}
 		return iterator;
 	}
 
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings( { "unchecked", "unused" })
 	private boolean isIterable(Object sequence) {
 		Class[] interfaces = sequence.getClass().getInterfaces();
 		for (Class clazz : interfaces) {

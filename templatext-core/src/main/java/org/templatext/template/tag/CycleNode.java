@@ -8,14 +8,16 @@ import org.templatext.template.Variable;
 /**
  * Cycle among the given strings each time this tag is encountered. The tag
  * should appear within a loop.
- * 
+ * <p>
  * You can use any number of values, separated by spaces. Values enclosed in
  * single (‘) or double quotes (“) are treated as string literals, while values
  * without quotes are assumed to refer to context variables.
- * 
+ * <p>
+ * <pre>
  * {% for o in some_list %}
  *   <tr class="{% cycle 'row1' 'row2' %}"> ... </tr> 
  * {% endfor %}
+ * </pre>
  * 
  * @author Steingrim Dovland <steingrd@ifi.uio.no>
  */
