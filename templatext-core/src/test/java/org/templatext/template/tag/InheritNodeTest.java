@@ -1,5 +1,8 @@
 package org.templatext.template.tag;
 
+import java.util.HashMap;
+
+import org.templatext.template.Configuration;
 import org.templatext.template.Context;
 import org.templatext.template.Template;
 import org.templatext.template.TemplateException;
@@ -36,10 +39,11 @@ public class InheritNodeTest extends TestCase {
 		parentNodes.add(new OverrideNode("middle", tmp));
 		parentNodes.add(new TextNode("PARENT"));
 		parent = new Template(parentNodes);
+	
+		Configuration configuration = new Configuration();
+		configuration.setTemplateLoader(new MockTemplateLoader());
 		
-		context = new Context();
-		context.configuration().setTemplateLoader(templateLoader);
-		context.put("__template", current);
+		context = Context.forTemplate(current, configuration, new HashMap<String,Object>());
 	}
 	
 	public void testInheritWithoutOverridesRendersParent() throws Exception {

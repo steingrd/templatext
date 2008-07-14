@@ -1,5 +1,8 @@
 package org.templatext.template.tag;
 
+import java.util.HashMap;
+
+import org.templatext.template.Configuration;
 import org.templatext.template.Context;
 import org.templatext.template.Template;
 import org.templatext.template.TemplateException;
@@ -30,7 +33,11 @@ public class InsertNodeTest extends TestCase {
 				return new Template(nodes);
 			}
 		};
-		context.configuration().setTemplateLoader(mockLoader);
+		
+		Configuration configuration = new Configuration();
+		configuration.setTemplateLoader(mockLoader);
+		
+		context = Context.forTemplate(null, configuration, new HashMap<String, Object>());
 	}
 	
 	public void testWithValidTemplateNameInsertsTemplate() throws Exception {
