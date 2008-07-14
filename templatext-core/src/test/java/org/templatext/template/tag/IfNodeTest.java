@@ -17,7 +17,7 @@ public class IfNodeTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		context = new Context();
+		context = Context.create();
 		
 		// create mock true and else blocks, use these to check which block
 		// executed, by checking the rendered output.

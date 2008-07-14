@@ -18,7 +18,7 @@ public class VariableNodeTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		this.context = new Context();
+		this.context = Context.create();
 		this.library = new FilterLibrary();
 	}
 	

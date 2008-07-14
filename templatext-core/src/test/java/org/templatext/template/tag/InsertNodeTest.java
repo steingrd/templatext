@@ -22,7 +22,7 @@ public class InsertNodeTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		context = new Context();
+		context = Context.create();
 		mockLoader = new TemplateLoader() {
 			public Template load(String name) throws TemplateNotFoundException {
 				if (!name.equals("inner")) {
@@ -37,7 +37,7 @@ public class InsertNodeTest extends TestCase {
 		Configuration configuration = new Configuration();
 		configuration.setTemplateLoader(mockLoader);
 		
-		context = Context.forTemplate(null, configuration, new HashMap<String, Object>());
+		context = Context.create(configuration, null, new HashMap<String, Object>());
 	}
 	
 	public void testWithValidTemplateNameInsertsTemplate() throws Exception {

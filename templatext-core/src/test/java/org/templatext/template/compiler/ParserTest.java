@@ -18,7 +18,7 @@ public class ParserTest extends TestCase {
 	protected void setUp() throws Exception {
 		tagLibrary = new TagLibrary();
 		filterLibrary = new FilterLibrary();
-		context = new Context();
+		context = Context.create();
 	}
 	
 	public void testTextOnly() throws Exception {

@@ -22,14 +22,10 @@ public class InheritNodeTest extends TestCase {
 	private Template parent;
 	private NodeList currentNodes;
 	private NodeList parentNodes;
-	private TemplateLoader templateLoader;
 	
 	@Override
 	protected void setUp() throws Exception {
-		NodeList tmp;
-		
-		templateLoader = new MockTemplateLoader();
-		
+		NodeList tmp;	
 		currentNodes = new NodeList();
 		current = new Template(currentNodes);
 		parentNodes = new NodeList();
@@ -43,7 +39,7 @@ public class InheritNodeTest extends TestCase {
 		Configuration configuration = new Configuration();
 		configuration.setTemplateLoader(new MockTemplateLoader());
 		
-		context = Context.forTemplate(current, configuration, new HashMap<String,Object>());
+		context = Context.create(configuration, current, new HashMap<String,Object>());
 	}
 	
 	public void testInheritWithoutOverridesRendersParent() throws Exception {

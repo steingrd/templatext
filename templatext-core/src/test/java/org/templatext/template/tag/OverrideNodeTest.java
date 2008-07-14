@@ -16,7 +16,7 @@ public class OverrideNodeTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		context = new Context();
+		context = Context.create();
 		block1 = new NodeList();
 		block1.add(new TextNode("test1"));
 		block2 = new NodeList();

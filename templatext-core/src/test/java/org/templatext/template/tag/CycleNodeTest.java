@@ -13,7 +13,7 @@ public class CycleNodeTest extends TestCase {
 
 	@Override
 	protected void setUp() throws Exception {
-		context = new Context();
+		context = Context.create();
 		context.put("forloop", new ForLoopContextObjectWithSideEffect());
 	}
 

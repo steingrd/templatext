@@ -52,7 +52,7 @@ public class TemplatextView extends AbstractTemplateView {
 	 */
 	@SuppressWarnings("unchecked")
 	protected void processTemplate(Template template, Map model, HttpServletResponse response) throws Exception {
-		Context context = Context.forTemplate(template, this.configuration, model);
+		Context context = Context.create(this.configuration, template, model);
 		template.render(context, response.getWriter());
 	}
 

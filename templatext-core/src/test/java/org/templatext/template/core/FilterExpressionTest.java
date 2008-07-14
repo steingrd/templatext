@@ -17,7 +17,7 @@ public class FilterExpressionTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		context = new Context();
+		context = Context.create();
 		chain = new FilterChain();
 		
 		// this identity filter simply returns its argument

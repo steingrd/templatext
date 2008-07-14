@@ -14,7 +14,7 @@ public class NodeListTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		context = new Context();
+		context = Context.create();
 	}
 	
 	public void testEmptyListRendersEmptyString() throws Exception {

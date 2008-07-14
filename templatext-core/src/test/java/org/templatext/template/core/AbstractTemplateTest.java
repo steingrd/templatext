@@ -30,7 +30,7 @@ public abstract class AbstractTemplateTest extends TestCase {
 	}
 	
 	protected static Context createContext(Object ... args) {
-		Context context = new Context();
+		Context context = Context.create();
 		// iterate over the args array, notice +=2 instead of ++
 		for (int i = 0; i < args.length; i += 2) {
 			context.put((String) args[i], args[i+1]);

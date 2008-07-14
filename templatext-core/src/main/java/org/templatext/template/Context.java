@@ -19,17 +19,10 @@ public class Context {
 	private Map<String, Object> context;
 
 	/**
-	 * Creates an empty context.
+	 * Creates an empty context. Use a factory method in this class instead of
+	 * this private constructor.
 	 */
-	public Context() {
-		this(new HashMap<String, Object>());
-	}
-
-	/**
-	 * Creates a context using the values in the given map.
-	 */
-	public Context(Map<String, Object> context) {
-		this.context = context;
+	private Context() {
 	}
 
 	/**
@@ -100,16 +93,26 @@ public class Context {
 	}
 
 	/**
+	 * Creates an empty {@link Context} with the default {@link Configuration}. 
+	 * @return
+	 */
+	public static Context create() {
+		return create(new Configuration(), null, new HashMap<String, Object>());
+	}
+	
+	/**
 	 * Creates a {@link Context} for the given template with the given model and
 	 * configuration.
 	 * 
 	 * The model and the configuration objects are added to the context using
 	 * the special, internal context keys.
 	 */
-	public static Context forTemplate(Template template, Configuration configuration, Map<String, Object> model) {
-		Context context = new Context(model);
+	public static Context create(Configuration configuration, Template template, Map<String, Object> model) {
+		Context context = new Context();
+		context.context = model;
 		context.put("__template", template);
 		context.put("__configuration", configuration);
 		return context;
 	}
+
 }

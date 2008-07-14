@@ -15,7 +15,7 @@ public class TemplateCompilerTest extends TestCase {
 	
 	protected void setUp() throws Exception {
 		compiler = new TemplateCompiler();
-		context = new Context();
+		context = Context.create();
 	}
 	
 	public void testCompileFromStringGeneratesValidTemplate() throws Exception {

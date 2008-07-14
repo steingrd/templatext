@@ -22,7 +22,7 @@ public class ForNodeTest extends TestCase {
 	
 	@Override
 	protected void setUp() throws Exception {
-		context = new Context();
+		context = Context.create();
 		body = new NodeList();
 	}
 	
