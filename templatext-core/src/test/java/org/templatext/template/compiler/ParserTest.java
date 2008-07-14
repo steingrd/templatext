@@ -55,4 +55,11 @@ public class ParserTest extends TestCase {
 		assertEquals("some text 123 more text", block.render(context));
 	}
 	
+	public void testTwoVariablesSeparatedWithNewlines() throws Exception {
+		context.put("var1", "foo");
+		context.put("var2", "bar");
+		NodeList block = new ParserImpl("\n\n{{ var1 }}\n\n{{ var2 }}\n\n", tagLibrary, filterLibrary).parse();
+		assertEquals("\n\nfoo\n\nbar\n\n", block.render(context));
+	}
+	
 }

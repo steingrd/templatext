@@ -25,7 +25,7 @@ public class TemplateCompiler {
 		
 		try {
 			String line = reader.readLine();
-			while (line != null && !"".equals(line)) {
+			while (line != null) {
 				templateString.append(line);
 				// readLine strips away the newline, we want to keep it to
 				// preserve the format the template author used
