@@ -1,6 +1,7 @@
 package org.templatext.template.compiler;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+import org.templatext.template.utils.QuotedStringTokenizer;
 
 /**
  * Represents a single token in the template. A template is a series of 
@@ -28,12 +29,11 @@ public class Token {
 	/**
 	 * Splits the contents property of a Token into an array of string elements.
 	 * 
-	 * TODO parse quoted strings
-	 * 
 	 * @return an array of Strings.
 	 */
 	public String[] splitContents() {
-		return getContents().split(" ");
+		QuotedStringTokenizer tokenizer = new QuotedStringTokenizer(contents);
+		return tokenizer.allTokens();
 	}
 	
 	/**
