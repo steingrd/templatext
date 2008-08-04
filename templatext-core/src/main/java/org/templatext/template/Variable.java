@@ -1,6 +1,8 @@
 package org.templatext.template;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.templatext.template.core.VariableChain;
 
@@ -21,8 +23,12 @@ public class Variable {
 		}
 		
 		String[] parts = variable.split("\\.");
+		
+		List<String> chainList = Arrays.asList(parts);
+		chainList = chainList.subList(1, chainList.size());
+		
 		name = parts[0];
-		chain = new VariableChain(Arrays.asList(parts));
+		chain = new VariableChain(chainList);
 	}
 
 	public String getName() {
