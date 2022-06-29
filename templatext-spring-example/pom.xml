@@ -119,7 +119,7 @@
   </dependencies>
   <properties>
     <version.hibernate>3.2.4.ga</version.hibernate>
-    <version.derby>10.4.1.3</version.derby>
+    <version.derby>10.14.2.0</version.derby>
     <version.spring>2.5.5</version.spring>
     <version.jetty>6.1.9</version.jetty>
   </properties>
